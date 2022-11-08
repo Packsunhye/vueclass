@@ -3,23 +3,23 @@
         <h2 class="blind">해파리의 신비한 빛깔</h2>
         <div class="imgText__inner" :class="layout">
             <div class="imgText__txt">
-                <span>jellu fisf color</span>
-                <h3> 해파리의 <br />신비한 빛깔 </h3>
-                <p> 빛에 따라 달라지지만, 어떠한 색깔도 잘 어울리는 모습을 보입니다.</p>
+                <span>{{ top.title }}</span>
+                <h3>{{ top.desc }}</h3>
+                <p>{{ top.msg }}</p>
                 <ul>
-                    <li><a href="/">노무라입깃해파리</a></li>
-                    <li><a href="/">보름달물해파리</a></li>
-                    <li><a href="/">사자갈기해파리</a></li>
-                    <li><a href="/">스티기오메두사</a></li>
-                    <li><a href="/">숲뿌리해파리</a></li>
-                    <li><a href="/">범피</a></li>
+                    <li><a href="/">{{ top.name1 }}</a></li>
+                    <li><a href="/">{{ top.name2 }}</a></li>
+                    <li><a href="/">{{ top.name3 }}</a></li>
+                    <li><a href="/">{{ top.name4 }}</a></li>
+                    <li><a href="/">{{ top.name5 }}</a></li>
+                    <li><a href="/">{{ top.name6 }}</a></li>
                 </ul>
             </div>
-            <div class="imgText__img img1">
-                <a href="/">대양해파리</a>
-            </div>
-            <div class="imgText__img img2">
-                <a href="/" class="blue">커튼원양해파리</a>
+            <div class="imgText__img" 
+            :class="text.class"
+            v-for="text in titles"
+            v-bind:key="text.key">
+                <a href="/">{{ text.title }}</a>
             </div>
         </div>
     </section> 
@@ -31,6 +31,31 @@ export default {
     attr: String,
     layout: String,
   },
+  data: function () {
+        return {
+          top: {
+            title: "jellu fisf color",
+            desc: "해파리의 신비한 빛깔",
+            msg: "빛에 따라 달라지지만, 어떠한 색깔도 잘 어울리는 모습을 보입니다.",
+            name1: "노무라입깃해파리",
+            name2: "보름달물해파리",
+            name3: "사자갈기해파리",
+            name4: "스티기오메두사",
+            name5: "숲뿌리해파리",
+            name6: "범피",
+          },
+          titles: [
+            {
+              title: "대양해파리",
+              class : "img1",
+            },
+            {
+              title: "커튼원양해파리",
+              class : "img2",
+            },
+          ],
+        };
+    },
 }
 </script>
 

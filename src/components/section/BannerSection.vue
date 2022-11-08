@@ -2,11 +2,11 @@
     <section id="bannerType" class="banner__wrap" :class="attr">
         <h2 class="blind">배너 영역</h2>
         <div class="banner__inner">
-            <h3 class="title">해파리 사이트</h3>
-            <p class="desc">해파리들이 얼마나 아름다운지 알리는 사이트  
-                <a href="/" title="해파리 보러가기">어떠신가요?</a>
+            <h3 class="title">{{ titles[0].title }}</h3>
+            <p class="desc">{{ titles[0].desc }}
+                <a href="/" title="해파리 보러가기">{{ titles[0].to }}</a>
             </p>
-            <span class="small">배너 유형 01</span>
+            <span class="small">{{ titles[0].about }}</span>
         </div>
     </section>    
 </template>
@@ -15,6 +15,17 @@
 export default {
   props: {
     attr: String,
+  },
+  data: function () {
+    return {
+      titles: [
+        { title: "해파리 사이트" },
+        { desc: "해파리들이 얼마나 아름다운지 알리는 사이트" },
+        { link: "/" },
+        { to: "어떠신가요?" },
+        { about: "배너 유형 01" },
+      ],
+    };
   },
 }
 </script>

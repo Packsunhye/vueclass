@@ -13,50 +13,47 @@
     :modules="modules"
     class="mySwiper"
     >
-      <swiper-slide>
+      <swiper-slide v-for="text in titles" v-bind:key="text.key">
         <div className="desc">
-            <span>Under the Sea</span>
-            <h3>Jelly fish</h3>
+            <span>{{ text.span }}</span>
+            <h3>{{ text.title }}</h3>
             <p>
-              심해 그 저편에는 말랑한 해파리들이 <br />
-              가득 있습니다! 우리 같이 여러 모습들을 구경해보아요.
+              {{ text.desc }}
             </p>
             <div className="btn">
-              <a href="/">자세히 보기</a>
+              <a href="/">{{ text.amore }}</a>
               <a href="/" className="black">
-                사이트 보기
+                {{ text.aview }}
               </a>
             </div>
           </div>
       </swiper-slide>
       <swiper-slide>
         <div className="desc">
-            <span>Under the Sea</span>
-            <h3>Jelly fish</h3>
+            <span>{{ text.span }}</span>
+            <h3>{{ text.title }}</h3>
             <p>
-              심해 그 저편에는 말랑한 해파리들이 <br />
-              가득 있습니다! 우리 같이 여러 모습들을 구경해보아요.
+              {{ text.desc }}
             </p>
             <div className="btn">
-              <a href="/">자세히 보기</a>
+              <a href="/">{{ text.amore }}</a>
               <a href="/" className="black">
-                사이트 보기
+                {{ text.aview }}
               </a>
             </div>
           </div>
       </swiper-slide>
       <swiper-slide>
         <div className="desc">
-            <span>Under the Sea</span>
-            <h3>Jelly fish</h3>
+            <span>{{ text.span }}</span>
+            <h3>{{ text.title }}</h3>
             <p>
-              심해 그 저편에는 말랑한 해파리들이 <br />
-              가득 있습니다! 우리 같이 여러 모습들을 구경해보아요.
+              {{ text.desc }}
             </p>
             <div className="btn">
-              <a href="/">자세히 보기</a>
+              <a href="/">{{ text.amore }}</a>
               <a href="/" className="black">
-                사이트 보기
+                {{ text.aview }}
               </a>
             </div>
           </div>
@@ -78,6 +75,19 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default {
+    data: function () {
+    return {
+      titles: [
+        {
+          span: "Under the Sea",
+          title: "Jelly fish",
+          desc: "심해 그 저편에는 말랑한 해파리들이 가득 있습니다! 우리 같이 여러 모습들을 구경해보아요.",
+          amore: "자세히 보기",
+          aview: "사이트 보기",
+        },
+      ],
+    };
+  },
   components: {
     Swiper,
     SwiperSlide,
